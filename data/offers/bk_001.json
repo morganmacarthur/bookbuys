@@ -1,0 +1,24 @@
+{
+  "book": {
+    "id": "bk_001",
+    "title": "Last Light",
+    "author": "Jane Doe"
+  },
+  "offers": [
+    {
+      "retailer": "Bookbuys",
+      "price": 14.99,
+      "url": "https://bookbuys.com/b/last-light"
+    },
+    {
+      "retailer": "Retailer A",
+      "price": 15.25,
+      "url": "https://example.com/last-light"
+    },
+    {
+      "retailer": "Retailer B",
+      "price": 15.50,
+      "url": "https://example.com/last-light-b"
+    }
+  ]
+}

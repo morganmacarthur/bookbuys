@@ -1,0 +1,19 @@
+{
+  "book": {
+    "id": "bk_002",
+    "title": "River Glass",
+    "author": "Jane Doe"
+  },
+  "offers": [
+    {
+      "retailer": "Bookbuys",
+      "price": 12.50,
+      "url": "https://bookbuys.com/b/river-glass"
+    },
+    {
+      "retailer": "Retailer A",
+      "price": 13.00,
+      "url": "https://example.com/river-glass"
+    }
+  ]
+}

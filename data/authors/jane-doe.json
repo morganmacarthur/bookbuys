@@ -1,0 +1,25 @@
+{
+  "author": { "id": "au_001", "name": "Jane Doe", "slug": "jane-doe" },
+  "generated_at": "2026-03-12T22:34:00-08:00",
+  "ttl_seconds": 21600,
+  "books": [
+    {
+      "id": "bk_001",
+      "title": "Last Light",
+      "isbn13": "9781234567890",
+      "release_date": "2025-10-10",
+      "spine_url": "/assets/spines/last-light.png",
+      "overlay_url": "/embed/offer.php?book_id=bk_001",
+      "price_summary": { "best_new": 14.99, "currency": "USD" }
+    },
+    {
+      "id": "bk_002",
+      "title": "River Glass",
+      "isbn13": "9781234567891",
+      "release_date": "2024-05-02",
+      "spine_url": "/assets/spines/river-glass.png",
+      "overlay_url": "/embed/offer.php?book_id=bk_002",
+      "price_summary": { "best_new": 12.50, "currency": "USD" }
+    }
+  ]
+}
