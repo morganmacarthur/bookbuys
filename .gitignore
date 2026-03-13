@@ -1,0 +1,15 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Logs and temp
+*.log
+tmp/
+
+# Generated assets
+assets/spines/generated/
+assets/spines/*.webp
+
+# Local secrets
+.env
