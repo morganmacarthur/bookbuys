@@ -22,8 +22,16 @@ if (!is_array($payload)) {
     exit;
 }
 
-$book = $payload['book'];
-$offers = $payload['offers'];
+$book = isset($payload['book']) ? $payload['book'] : ['title' => 'Untitled', 'author' => 'Unknown'];
+$bestOffer = isset($payload['best_offer']) ? $payload['best_offer'] : null;
+$offers = isset($payload['offers']) ? $payload['offers'] : [];
+
+if ($bestOffer === null && count($offers) > 0) {
+    usort($offers, function ($a, $b) {
+        return $a['price'] <=> $b['price'];
+    });
+    $bestOffer = $offers[0];
+}
 
 header('Content-Type: text/html; charset=utf-8');
 header('Cache-Control: public, max-age=21600');
@@ -78,6 +86,10 @@ header('Cache-Control: public, max-age=21600');
         color: #777;
         margin-top: 10px;
       }
+      .empty {
+        font-size: 12px;
+        color: #666;
+      }
     </style>
   </head>
   <body>
@@ -85,15 +97,17 @@ header('Cache-Control: public, max-age=21600');
       <div class="title"><?php echo htmlspecialchars($book['title']); ?></div>
       <div class="author">by <?php echo htmlspecialchars($book['author']); ?></div>
 
-      <?php foreach ($offers as $offer): ?>
+      <?php if ($bestOffer): ?>
         <div class="offer">
           <div>
-            <div><?php echo htmlspecialchars($offer['retailer']); ?></div>
-            <div>$<?php echo number_format((float)$offer['price'], 2); ?></div>
+            <div><?php echo htmlspecialchars($bestOffer['retailer']); ?></div>
+            <div>$<?php echo number_format((float)$bestOffer['price'], 2); ?></div>
           </div>
-          <a class="cta" href="<?php echo htmlspecialchars($offer['url']); ?>" target="_blank" rel="noopener">Buy new</a>
+          <a class="cta" href="<?php echo htmlspecialchars($bestOffer['url']); ?>" target="_blank" rel="noopener">Buy new</a>
         </div>
-      <?php endforeach; ?>
+      <?php else: ?>
+        <div class="empty">No offers available.</div>
+      <?php endif; ?>
 
       <div class="note">Prices updated every few hours. New copies only.</div>
     </div>
